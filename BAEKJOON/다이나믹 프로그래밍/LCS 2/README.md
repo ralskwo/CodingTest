@@ -1,5 +1,7 @@
 # 최장 공통 부분 수열 (Longest Common Subsequence)
 
+https://www.acmicpc.net/problem/9252
+
 ## 문제 설명
 LCS(Longest Common Subsequence, 최장 공통 부분 수열) 문제는 두 수열이 주어졌을 때, 모두의 부분 수열이 되는 수열 중 가장 긴 것을 찾는 문제입니다.
 

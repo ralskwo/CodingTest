@@ -1,4 +1,6 @@
-# 문제 풀이 과정
+# 괄호의 값 문제 풀이 과정
+
+https://www.acmicpc.net/problem/2504
 
 ## 문제 이해 및 접근 방법
 

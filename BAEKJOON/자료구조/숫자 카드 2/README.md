@@ -1,4 +1,6 @@
-## 문제 풀이 과정
+## 숫자 카드 2 문제 풀이 과정
+
+https://www.acmicpc.net/problem/10816
 
 ### 문제 이해
 

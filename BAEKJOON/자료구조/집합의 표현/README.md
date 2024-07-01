@@ -1,4 +1,6 @@
-# 문제 풀이 과정
+# 집합의 표현 문제 풀이 과정
+
+https://www.acmicpc.net/problem/1717
 
 ## 문제 이해 및 접근 방법
 
@@ -51,8 +53,8 @@ def union(parent, rank, x, y):
 
 # 입력 처리
 data = input().strip().split()
-n = int(data[0])
-m = int(data[1])
+n = int(data[0])  # n은 집합의 개수
+m = int(data[1])  # m은 연산의 개수
 
 # 부모와 랭크 배열 초기화
 # parent 리스트는 각 원소의 부모를 나타냅니다. 초기에는 자기 자신이 부모입니다.
@@ -71,4 +73,15 @@ for _ in range(m):
     index += 3
 
     if operation == 0:
-        # 합집합 연산: a와 b가 속한 집합을
+        # 합집합 연산: a와 b가 속한 집합을 합칩니다.
+        union(parent, rank, a, b)
+    elif operation == 1:
+        # 찾기 연산: a와 b가 같은 집합에 속하는지 확인합니다.
+        if find(parent, a) == find(parent, b):
+            result.append("YES")
+        else:
+            result.append("NO")
+
+# 결과 출력
+sys.stdout.write("\n".join(result) + "\n")
+
