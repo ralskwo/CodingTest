@@ -26,7 +26,7 @@ https://www.acmicpc.net/problem/9372
     - 결과를 출력합니다.
 
 ## 코드
-```
+```python
 import sys
 input = sys.stdin.read
 
