@@ -1,0 +1,100 @@
+# 트리의 높이와 너비 문제 풀이 및 설명
+
+https://www.acmicpc.net/problem/2250
+
+## 문제 이해
+
+이 문제는 이진트리의 각 레벨별 너비를 계산하여 가장 넓은 레벨을 찾는 것입니다. 주어진 이진트리를 특정 규칙에 따라 격자 모양의 틀에 그리며, 같은 레벨의 노드는 같은 행에 위치하고, 각 노드는 고유한 열에 위치합니다. 이때, 각 레벨의 너비는 해당 레벨의 가장 오른쪽 노드의 열 번호에서 가장 왼쪽 노드의 열 번호를 뺀 값에 1을 더한 값으로 정의됩니다. 우리는 너비가 가장 넓은 레벨과 그 너비를 계산하여 출력해야 합니다. 만약 너비가 같은 레벨이 여러 개라면, 번호가 작은 레벨을 출력합니다.
+
+## 접근 방식
+
+1. **트리 구성**:
+   - 노드의 개수를 입력받고, 트리를 저장할 2차원 리스트를 초기화합니다. 각 노드는 `[왼쪽 자식, 오른쪽 자식, 부모, 깊이, 너비]`의 형태로 저장됩니다.
+   - 입력받은 데이터를 바탕으로 트리를 구성합니다. 자식 노드가 없는 경우 `-1`을 `0`으로 변환하여 저장합니다.
+
+2. **DFS를 통한 깊이 계산**:
+   - DFS(깊이 우선 탐색)를 사용하여 각 노드의 깊이를 계산합니다. DFS는 루트 노드에서 시작하여 자식 노드를 방문하며 깊이를 1씩 증가시킵니다.
+   - DFS 과정에서 최대 깊이를 추적하여 나중에 깊이 리스트를 초기화하는 데 사용합니다.
+
+3. **중위 순회를 통한 열 번호 매기기**:
+   - 중위 순회(In-Order Traversal)를 통해 각 노드의 열 번호를 매깁니다. 중위 순회는 왼쪽 자식, 현재 노드, 오른쪽 자식 순으로 방문하므로 자연스럽게 열 번호가 증가합니다.
+
+4. **레벨별 너비 계산**:
+   - 각 노드의 깊이에 따라 해당 레벨의 리스트에 노드의 열 번호를 저장합니다.
+   - 각 레벨의 너비는 해당 레벨의 최대 열 번호와 최소 열 번호의 차이에 1을 더한 값으로 계산됩니다.
+
+5. **가장 넓은 레벨 찾기**:
+   - 계산된 너비 리스트에서 가장 큰 너비를 찾고, 해당 너비를 가지는 레벨을 출력합니다. 가장 넓은 레벨이 여러 개 있을 경우, 번호가 작은 레벨을 출력합니다.
+
+```python
+import sys
+
+input = sys.stdin.readline
+
+# 중위 순회 (In-Order Traversal)로 노드의 번호를 매긴다.
+def in_order(v):
+    global order
+
+    if v:
+        in_order(tree[v][0])  # 왼쪽 자식 방문
+        tree[v][4] = order  # 현재 노드의 번호를 저장
+        order += 1  # 다음 번호 증가
+        in_order(tree[v][1])  # 오른쪽 자식 방문
+
+# 깊이 우선 탐색 (DFS)로 트리의 깊이를 계산한다.
+def dfs(cur, depth):
+    global max_depth
+    visited[cur] = True  # 현재 노드를 방문 처리
+    tree[cur][3] = depth  # 현재 노드의 깊이를 저장
+    if max_depth < depth:
+        max_depth = depth  # 최대 깊이 갱신
+
+    for i in range(2):  # 왼쪽, 오른쪽 자식 순회
+        if not visited[tree[cur][i]]:
+            dfs(tree[cur][i], depth + 1)  # 자식을 방문하며 깊이를 1 증가
+
+N = int(input())  # 노드의 개수를 입력받음
+
+tree = [[0, 0, 0, 0, 0] for i in range(N + 1)]  # 트리 초기화: 왼쪽 자식, 오른쪽 자식, 부모, 깊이, 너비
+for _ in range(N):
+    node, left, right = map(int, input().split())
+
+    if left == -1: left = 0  # 자식이 없으면 0으로 설정
+    if right == -1: right = 0
+
+    tree[node][0] = left  # 왼쪽 자식 설정
+    tree[node][1] = right  # 오른쪽 자식 설정
+
+    tree[left][2] = node  # 왼쪽 자식의 부모 설정
+    tree[right][2] = node  # 오른쪽 자식의 부모 설정
+
+visited = [False] * (N + 1)  # 방문 배열 초기화
+visited[0] = True  # 0번 노드는 사용하지 않음
+
+# 루트 노드 찾기
+root = 0
+for i in range(1, N + 1):
+    if tree[i][2] == 0:
+        root = i
+
+# 트리의 최대 깊이 찾기
+max_depth = 0
+dfs(root, 1)  # 루트 노드부터 깊이 우선 탐색 시작
+order = 1  # 중위 순회에서 사용할 번호 초기화
+in_order(root)  # 루트 노드부터 중위 순회 시작
+
+# 각 깊이별로 너비를 계산하기 위해 리스트 초기화
+depth_list = [[] for _ in range(max_depth + 1)]
+for j in range(1, N + 1):
+    depth_list[tree[j][3]].append(tree[j][4])  # 각 깊이별로 너비 저장
+
+result = []
+# 깊이별 너비 계산
+for i in range(len(depth_list)):
+    if len(depth_list[i]) <= 1:  # 해당 깊이에 노드가 하나만 있으면 너비는 1
+        result.append(1)
+    else:  # 노드가 여러 개 있으면
+        result.append(max(depth_list[i]) - min(depth_list[i]) + 1)  # 가장 큰 너비 - 가장 작은 너비 + 1
+
+# 최대 너비를 가지는 깊이를 찾음
+print(result.index(max(result), 1), max(result))
