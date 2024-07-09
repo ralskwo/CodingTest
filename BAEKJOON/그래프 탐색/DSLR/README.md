@@ -21,6 +21,10 @@ https://www.acmicpc.net/problem/9019
 3. 새로운 숫자가 이미 방문된 숫자가 아니라면 큐에 추가하고, 해당 숫자로 변환하기 위한 명령어 시퀀스를 기록합니다.
 4. 목표 숫자 B에 도달하면 현재까지의 명령어 시퀀스를 반환합니다.
 
+## 문제 제출 시 주의 사항
+
+이 문제는 Python3로 제출하면 시간 초과 오류가 발생하므로, Python3 대신 PyPy3로 제출해야 합니다. Python3와 PyPy3의 차이점은 다음 포스트를 참고해 주세요.
+
 ## 코드
 ```python
 from collections import deque
