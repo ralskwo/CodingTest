@@ -87,6 +87,5 @@ def solve():
     
     print(max_value)  # 최종적으로 챙길 수 있는 보석 가격의 합의 최대값을 출력합니다.
 
-# Baekjoon 온라인 저지에서 제출 시 아래 주석을 해제해주세요
-# if __name__ == "__main__":
-#     solve()
+if __name__ == "__main__":
+    solve()
