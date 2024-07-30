@@ -4,6 +4,8 @@
         "set": "cpp",
         "queue": "cpp",
         "utility": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "xutility": "cpp",
+        "xstring": "cpp"
     }
 }
