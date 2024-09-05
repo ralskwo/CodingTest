@@ -1,12 +1,13 @@
 {
-    "files.associations": {
-        "vector": "cpp",
-        "set": "cpp",
-        "queue": "cpp",
-        "utility": "cpp",
-        "tuple": "cpp",
-        "xutility": "cpp",
-        "xstring": "cpp",
-        "iostream": "cpp"
-    }
+  "files.associations": {
+    "vector": "cpp",
+    "set": "cpp",
+    "queue": "cpp",
+    "utility": "cpp",
+    "tuple": "cpp",
+    "xutility": "cpp",
+    "xstring": "cpp",
+    "iostream": "cpp",
+    "deque": "cpp"
+  }
 }
