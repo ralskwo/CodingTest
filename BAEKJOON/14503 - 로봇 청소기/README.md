@@ -1,8 +1,8 @@
 # 로봇 청소기 문제 풀이 및 설명
 
-https://www.acmicpc.net/problem/14503
+<https://www.acmicpc.net/problem/14503>
 
-https://mayquartet.com/python-%ed%8c%8c%ec%9d%b4%ec%8d%ac-%eb%b0%b1%ec%a4%80-14503-%eb%a1%9c%eb%b4%87-%ec%b2%ad%ec%86%8c%ea%b8%b0-%eb%ac%b8%ec%a0%9c-%ed%92%80%ec%9d%b4-%eb%b0%8f-%ec%84%a4%eb%aa%85/
+<https://mayquartet.com/python-%ed%8c%8c%ec%9d%b4%ec%8d%ac-%eb%b0%b1%ec%a4%80-14503-%eb%a1%9c%eb%b4%87-%ec%b2%ad%ec%86%8c%ea%b8%b0-%eb%ac%b8%ec%a0%9c-%ed%92%80%ec%9d%b4-%eb%b0%8f-%ec%84%a4%eb%aa%85/>
 
 ## 문제 이해
 
@@ -15,7 +15,7 @@ https://mayquartet.com/python-%ed%8c%8c%ec%9d%b4%ec%8d%ac-%eb%b0%b1%ec%a4%80-145
 
 ## 입출력 조건
 
-**입력 조건**
+### 입력 조건
 
 1. 첫째 줄에 방의 크기 `N`과 `M`이 공백으로 구분되어 주어집니다. `3 ≤ N, M ≤ 50`의 범위를 가지며, 이는 방의 최소 및 최대 크기를 나타냅니다.
 2. 둘째 줄에 로봇 청소기의 초기 위치 `(r, c)`와 방향 `d`가 공백으로 구분되어 주어집니다.
@@ -26,7 +26,7 @@ https://mayquartet.com/python-%ed%8c%8c%ec%9d%b4%ec%8d%ac-%eb%b0%b1%ec%a4%80-145
    - 1은 벽을 의미하며, 로봇이 이동할 수 없는 칸입니다.
 4. 로봇 청소기가 있는 초기 위치는 항상 빈 칸(0)입니다.
 
-**출력 조건**
+### 출력 조건
 
 - 로봇 청소기가 작동을 시작한 후 작동을 멈출 때까지 청소한 칸의 개수를 정수로 출력합니다.
 
