@@ -8,6 +8,7 @@
     "xutility": "cpp",
     "xstring": "cpp",
     "iostream": "cpp",
-    "deque": "cpp"
+    "deque": "cpp",
+    "stack": "cpp"
   }
 }
