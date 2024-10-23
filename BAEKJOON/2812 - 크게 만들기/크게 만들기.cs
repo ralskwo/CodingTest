@@ -29,7 +29,7 @@ class Program
             K--;
         }
 
-        // 스택의 내용을 배열로 변환한 뒤, 배열을 뒤집어 결과를 생성합니다.
+        // 스택의 내용을 배열로 변환한 후, 배열을 뒤집어 결과를 생성합니다.
         char[] resultArray = stack.ToArray();
         Array.Reverse(resultArray);
         // 배열을 문자열로 변환하여 반환합니다.
