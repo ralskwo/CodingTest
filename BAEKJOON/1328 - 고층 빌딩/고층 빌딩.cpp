@@ -5,7 +5,7 @@ using namespace std;
 const int MOD = 1000000007; // 결과를 나눌 모듈러 값 설정
 
 int countBuildingArrangements(int N, int L, int R) {
-    // 3D DP 테이블 초기화
+    // 3D DP 테이블 초기화 
     vector<vector<vector<int>>> dp(N + 1, vector<vector<int>>(L + 1, vector<int>(R + 1, 0)));
 
     dp[1][1][1] = 1; // 초기 조건: 빌딩 1개일 때 왼쪽과 오른쪽에서 각각 1개씩 보이는 경우
