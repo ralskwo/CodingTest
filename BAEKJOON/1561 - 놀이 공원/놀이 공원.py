@@ -4,7 +4,7 @@ def find_last_ride(N, M, ride_times):
 
     # 이분 탐색을 통해 마지막 아이가 탑승 가능한 최소 시간을 찾음
     while left < right:
-        # 중간 시간을 계산
+        # 중간 시간 계산
         mid = (left + right) // 2
 
         # 현재 중간 시간(mid)까지 탑승할 수 있는 총 아이의 수를 계산
